@@ -1,0 +1,20 @@
+relic-definition: RelicDefinition
+server: Server Environment {
+  relic-server: RelicServer
+  relic-request-handler: handleRelicRequest
+}
+client: Client Environment {
+  relic-client: RelicClient
+  relic-client-instance: RelicClientInstance
+}
+# developer: Developer
+
+# developer -> relic-definition: Database Schema\nMutators\nShared Context
+relic-definition -> client.relic-client
+# developer -> relic-client: Mutator Handlers\nClient Context Type
+relic-definition -> server.relic-server
+# developer -> relic-server: Mutator Handlers\nServer Context\nPuller\nPoker
+server.relic-server -> server.relic-request-handler
+client.relic-client -> client.relic-client-instance
+# developer -> relic-client-instance: Client Context\nDatabase Adapter\nServer URL
+# developer -> relic-request-handler: Server Context\nDatabase Adapter

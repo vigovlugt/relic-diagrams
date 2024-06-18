@@ -1,0 +1,15 @@
+Client: Client (SPA) {
+  SQLite
+  relic-client
+  UI
+  SQLite -> relic-client
+  relic-client -> UI
+}
+
+Server.relic-server <-> Client.relic-client
+
+Server: {
+  Arbitrary DB
+  relic-server
+  Arbitrary DB -> relic-server
+}

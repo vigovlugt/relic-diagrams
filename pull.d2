@@ -1,0 +1,9 @@
+shape: sequence_diagram
+client: relic-client
+server: relic-server
+
+client -> server: Version of local state
+server -> client: Changes delta since version of client,\nprocessed client mutations
+client -> client: Rollback all mutations
+client -> client: Apply delta to local state
+client -> client: Re-apply pending mutations

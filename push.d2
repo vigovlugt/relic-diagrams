@@ -1,0 +1,7 @@
+shape: sequence_diagram
+client: relic-client
+server: relic-server
+
+client -> server: Send mutation queue
+server -> server: Apply mutations authoratively
+server -> client: Notify state change

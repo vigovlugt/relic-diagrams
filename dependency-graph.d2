@@ -1,0 +1,12 @@
+relic-definition-builder: Relic Definition Builder
+relic-definition: Relic Definition
+relic-client-builder: Relic Client Builder
+relic-server: Relic Server
+relic-server-builder: Relic Server Builder
+relic-client: Relic Client
+
+relic-definition-builder -> relic-definition: Database Schema\nMutators\nShared Context
+relic-definition -> relic-client-builder
+relic-definition -> relic-server-builder
+relic-client-builder -> relic-client: Mutators\nClient Context
+relic-server-builder -> relic-server: Mutators\nServer Context\nPuller\nPoker
