@@ -177,7 +177,7 @@ ${experiments.map(e => `\\textbf{${experimentLabel(e)}} & ` + Object.values(data
         }
 \\end{tabular}
 \\end{adjustbox}
-\\caption{Duration in milliseconds of client-side operations for databases with different number of rows. (N \\geq 10)}
+\\caption{Duration in milliseconds of client-side operations for databases with different number of rows. (N $\\geq$ 10)}
 \\label{tab:client-experiment }
 \\end{table}
     `

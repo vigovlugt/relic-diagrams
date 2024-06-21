@@ -328,6 +328,7 @@ ${experiments
 export function tableLatency() {
     return `\\begin{table}[H]
 \\centering
+\\begin{adjustbox}{width=\\textwidth}
 \\begin{tabular}{${"l".repeat(rows + 1)}}
 \\textbf{Rows} & ${Object.keys(data)
             .map((r) => `\\textbf{${r}}`)
@@ -341,15 +342,16 @@ ${experiments
                             (obj) =>
                                 `${parseFloat(
                                     obj[e].metrics.http_req_duration.values.avg.toFixed(2)
-                                )} $\\pm$ ${parseFloat(
+                                )} (${parseFloat(
                                     obj[e].metrics.http_req_duration.values["p(95)"].toFixed(2)
-                                )}`
+                                )})`
                         )
                         .join(" & ")
             )
             .join("\\\\\n")}
 \\end{tabular}
-\\caption{Average latency in milliseconds for server-side operations per number of rows in client state.}
+\\end{adjustbox}
+\\caption{Average latency in milliseconds for server-side operations per number of rows in client state. The 95th percentile of latency is shown in parentheses.}
 \\label{tab:server-relic-experiment-latency}
 \\end{table}
 `;
